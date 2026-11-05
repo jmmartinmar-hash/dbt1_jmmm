@@ -1,0 +1,47 @@
+version: 2
+
+models:
+  - name: slv_google_sheets__budget
+    description: "Modelo silver para la tabla de presupuesto proveniente de Google Sheets."
+    columns:
+      - name: product_id
+        description: "Identificador único del producto."
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('dim_products')
+              field: product_id
+
+      - name: quantity
+        description: "Cantidad presupuestada para el producto."
+        tests:
+          - not_null
+          - accepted_range:
+              min_value: 0
+              inclusive: true
+
+      - name: date
+        description: "Fecha del registro presupuestario."
+        tests:
+          - not_null
+
+      - name: month
+        description: "Mes correspondiente al presupuesto."
+        tests:
+          - not_null
+
+      - name: timestamp_tz
+        description: "Marca temporal con zona horaria."
+        tests:
+          - not_null
+
+      - name: _fivetran_synced
+        description: "Marca temporal de sincronización de Fivetran."
+        tests:
+          - not_null
+
+      - name: _loaded_at
+        description: "Marca temporal de carga en el DWH."
+        tests:
+          - not_null
