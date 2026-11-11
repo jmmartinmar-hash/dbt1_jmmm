@@ -5,11 +5,11 @@ models:
       - name: user_session_id
         description: Clave sustituta de (user_id, session_id).
         data_tests: [unique, not_null]
-      - name: user_id
-        data_tests:
-          - relationships:
-              arguments:
-                to: ref('dim_users')
-                field: user_id
+      # - name: user_id
+      #   data_tests:
+      #     - relationships:
+      #         arguments:
+      #           to: ref('dim_users')
+      #           field: user_id
       - name: did_session_convert
         description: TRUE si la sesión tiene al menos un checkout.

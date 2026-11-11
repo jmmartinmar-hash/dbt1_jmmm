@@ -28,3 +28,11 @@ selectors:
         - exclude:
             - method: resource_type
               value: snapshot
+
+
+
+  - name: S_1
+    description: Todos los gold core
+    definition:
+      method: tag
+      value: core
