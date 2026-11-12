@@ -72,14 +72,28 @@ models:
       intermediate:
         +materialized: view
         +schema: intermediate
+
+        # +access: private
+
+        int_orders__enriched:
+          +group: core
+
+        int_events__pivoted_by_sessions:
+          +group: product
+
+
       core:
         +tags: ['core'] 
         +schema: core
+        +group: core
+        +access: public
         +meta:
           owner: equipo-datos-core
       marketing:
         +tags: ['marketing']
         +schema: marketing
+        +group: marketing
+        +access: public
         +meta:
           owner: equipo-marketing-analytics
       product:
