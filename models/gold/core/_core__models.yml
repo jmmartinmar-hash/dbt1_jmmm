@@ -93,6 +93,8 @@ models:
           - include: all
             exclude: [last_updated_at_utc]
 
+  
+
   - name: dim_addresses
     description: Direcciones con código ISO y continente del seed country_codes.
     columns:

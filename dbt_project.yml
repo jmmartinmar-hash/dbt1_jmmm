@@ -89,6 +89,11 @@ models:
         +access: public
         +meta:
           owner: equipo-datos-core
+
+        +grants:
+          select: ['REPORTING_ROLE']
+
+
       marketing:
         +tags: ['marketing']
         +schema: marketing
@@ -96,11 +101,19 @@ models:
         +access: public
         +meta:
           owner: equipo-marketing-analytics
+
+        +grants:
+          select: ['REPORTING_ROLE']
+
+
       product:
         +tags: ['product']
         +schema: product
         +meta:
           owner: equipo-producto
+
+        +grants:
+          select: ['REPORTING_ROLE']
 
 # =============================================================================
 # Seeds
