@@ -72,21 +72,48 @@ models:
       intermediate:
         +materialized: view
         +schema: intermediate
+
+        # +access: private
+
+        int_orders__enriched:
+          +group: core
+
+        int_events__pivoted_by_sessions:
+          +group: product
+
+
       core:
         +tags: ['core'] 
         +schema: core
+        +group: core
+        +access: public
         +meta:
           owner: equipo-datos-core
+
+        +grants:
+          select: ['REPORTING_ROLE']
+
+
       marketing:
         +tags: ['marketing']
         +schema: marketing
+        +group: marketing
+        +access: public
         +meta:
           owner: equipo-marketing-analytics
+
+        +grants:
+          select: ['REPORTING_ROLE']
+
+
       product:
         +tags: ['product']
         +schema: product
         +meta:
           owner: equipo-producto
+
+        +grants:
+          select: ['REPORTING_ROLE']
 
 # =============================================================================
 # Seeds
